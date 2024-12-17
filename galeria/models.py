@@ -19,4 +19,4 @@ class Fotografia(models.Model):
     data_fotografia = models.DateTimeField(default=datetime.now, blank=False)
 
     def __str__(self):
-        return super().__str__()
+        return self.nome
