@@ -87,6 +87,10 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
+CSRF_TRUSTED_ORIGINS = [
+    'https://localhost:8000',
+]
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
