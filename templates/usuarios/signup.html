@@ -36,12 +36,12 @@
                 <nav class="menu-lateral__navegacao">
                     <a href="{% url 'index' %}"><img src="{% static '/assets/ícones/1x/Home - ativo.png' %}"> Home</a>
                     <a href="{% url 'login' %}"><img src="{% static '/assets/ícones/1x/Mais vistas - inativo.png' %}"> Login</a>
-                    <a href="{% url 'signup' %}"><img src="{% static '/assets/ícones/1x/Novas - inativo.png' %}"> Cadastrar</a>
+                    <a href="{% url 'signup' %}"><img src="{% static '/assets/ícones/1x/Novas - inativo.png' %}"> Sign Up</a>
                     <a href="#"><img src="{% static '/assets/ícones/1x/Surpreenda-me - inativo.png' %}"> Logout</a>
                 </nav>
             </section>
             <section class="galeria" style="margin-left: 5em">
-                <form action="" method="">
+                <form action="{% url 'signup' %}" method="POST">
                     {% csrf_token %}
                     <div class="row">
                      {% for field in form.visible_fields %}
@@ -52,7 +52,7 @@
                      {% endfor %}
                     </div>
                     <div>
-                        <button class="btn btn-success col-12" style="padding: top 5px;"  type="submit">Cadastrar</button>
+                        <button class="btn btn-success col-12" style="padding: top 5px;"  type="submit">Confim</button>
                     </div>
                 </form>
             </section>
