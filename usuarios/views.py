@@ -35,9 +35,7 @@ def signup(request):
 
         
         if form.is_valid():
-            if form["senha_1"].value() != form["senha_2"].value():
-                messages.error(request, "password not equal")
-                return redirect("signup")
+          
             nome=form["nome_cadastro"].value()
             email=form["email"].value()
             senha=form["senha_1"].value()
