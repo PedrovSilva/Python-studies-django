@@ -1,8 +1,6 @@
-{% extends 'galeria/base.html' %}
+{% extends 'shared/base.html' %}
 {% load static %}
 {% block content %}
-    
-            </section>
             <section class="conteudo">
                 <section class="banner">
                     <img class="banner__imagem" src="{% static '/assets/imagens/Banner(2).png' %}" alt="banner Alura Space">
@@ -18,26 +16,24 @@
                     </ul>
                 </section>
                 <section class="galeria">
-                   
                     <div class="cards">
                         <h2 class="cards__titulo">Navegue pela galeria</h2>
                         <ul class="cards__lista">
                             {% if cards %}
-                            {% for foto in cards %}
+                            {% for fotografia in cards %}
                             <li class="card">
-                                <a href="{% url 'imagem' foto.id %}">
-                                    {% if foto.foto == "" or foto.foto == null %}
-                                        <img class="card__imagem" src="{% static '/assets/imagens/galeria/not-found.jpg' %}" alt="foto">
-                                    {% else %}
-                                        <img class="card__imagem" src="{{ foto.foto.url }}" alt="foto">
-                                    {% endif %}
-
+                                <a href="{% url 'imagem' fotografia.id %}">
+                                {% if fotografia.foto == "" or fotografia.foto == null %}
+                                    <img class="card__imagem" src="{% static '/assets/imagens/galeria/not-found.png'%}" alt="foto">
+                                {% else %}
+                                    <img class="card__imagem" src="{{ fotografia.foto.url }}" alt="foto">
+                                {% endif %}
                                 </a>
-                                <span class="card__tag">{{ foto.categoria }}</span>
+                                <span class="card__tag">Estrelas</span>
                                 <div class="card__info">
-                                    <p class="card__titulo">{{ foto.nome }}</p>
+                                    <p class="card__titulo">{{fotografia.nome}}</p>
                                     <div class="card__texto">
-                                        <p class="card__descricao">{{ foto.legenda }}</p>
+                                        <p class="card__descricao">{{fotografia.legenda}}</p>
                                         <span>
                                             <img src="{% static '/assets/ícones/1x/favorite_outline.png' %}" alt="ícone de coração">
                                         </span>
@@ -46,17 +42,14 @@
                             </li>
                             {% endfor %}
                             {% else %}
-                            <div class="imagem_texto">
-                                <p>Fotografia não encontradas</p>
+                            <div class="imagem__texto">
+                                <p>Fotografias não encontradas</p>
                             </div>
                             {% endif %}
-
-                           
                         </ul>
                     </div>
                 </section>
             </section>
         </main>
     </div>
-  
 {% endblock %}
